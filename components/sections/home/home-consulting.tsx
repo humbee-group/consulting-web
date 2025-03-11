@@ -103,7 +103,8 @@ export default function HomeHero() {
           className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
           asChild
         >
-          <Link href="#expertise" aria-label="Découvrir notre expertise">
+          <Link href="#expertise" aria-label="Découvrir notre expertise" title="Découvrir notre expertise">
+            <span className="sr-only">Accéder à la section Expertise</span>
             Découvrir notre expertise
           </Link>
         </Button>
