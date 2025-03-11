@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import MobileMenu from "../../../navigation/mobile-menu";
 import DrawerContact from "@/components/drawers/drawer-contact";
 import { DesktopMenu } from "@/components/navigation/desktop-menu";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -17,7 +17,13 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       
-      {/* ✅ Vidéo optimisée avec `poster` */}
+      {/* ✅ Image de fond pour éviter un écran noir en attendant la vidéo */}
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
+        style={{ backgroundImage: "url('/projects/leandre-lerouge/hero-poster.webp')" }}
+      />
+
+      {/* ✅ Vidéo en fond optimisée */}
       <video
         autoPlay
         muted
@@ -67,7 +73,7 @@ export default function Hero() {
       {/* ✅ Conteneur Bouton + Chevron optimisé */}
       <div className="absolute bottom-10 flex flex-col items-center space-y-4">
         
-        {/* ✅ Bouton animé pour éviter tout blocage du LCP */}
+        {/* ✅ Bouton animé (sans impacter le LCP) */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

@@ -35,7 +35,6 @@ export default function HomeHero() {
         style={{ backgroundImage: "url('/assets/home-hero-poster.webp')" }}
       />
 
-      {/* ✅ Vidéo en fond */}
       <video
         autoPlay
         muted
