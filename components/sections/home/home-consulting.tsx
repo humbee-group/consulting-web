@@ -32,7 +32,7 @@ export default function HomeHero() {
       {/* ✅ Image de fond pour éviter un écran blanc */}
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
-        style={{ backgroundImage: "url('/assets/home-hero-poster.webp')" }}
+        style={{ backgroundImage: "url('/assets/home-poster.webp')" }}
       />
 
       <video

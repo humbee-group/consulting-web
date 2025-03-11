@@ -20,7 +20,7 @@ export default function Hero() {
       {/* ✅ Image de fond pour éviter un écran noir en attendant la vidéo */}
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
-        style={{ backgroundImage: "url('/projects/leandre-lerouge/hero-poster.webp')" }}
+        style={{ backgroundImage: "url('/projects/leandre-lerouge/lerouge-hero.webp')" }}
       />
 
       {/* ✅ Vidéo en fond optimisée */}
@@ -29,7 +29,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        poster="/projects/leandre-lerouge/hero-poster.webp"
+        poster="/projects/leandre-lerouge/lerouge-hero.webp"
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src="/projects/leandre-lerouge/hero.mp4" type="video/mp4" />
