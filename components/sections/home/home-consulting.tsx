@@ -10,32 +10,33 @@ import MobileMenu from "../../navigation/mobile-menu";
 import DrawerContact from "@/components/drawers/drawer-contact";
 import { DesktopMenu } from "@/components/navigation/desktop-menu";
 
+const words = ["projets", "idées", "défis"];
+
 export default function HomeHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
-  const words = ["projets", "idées", "défis"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
     }, 3000);
-
     return () => clearInterval(interval);
-  }, [words.length]);
+  }, []);
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
       {/* Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* Vidéo en fond avec décalage vers la droite */}
+      {/* Vidéo en fond avec `poster` pour un affichage immédiat */}
       <video
         autoPlay
         muted
         loop
         playsInline
+        poster="/assets/home-hero-poster.webp"
         className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
       >
         <source src="/assets/home-hero.mp4" type="video/mp4" />
@@ -51,6 +52,7 @@ export default function HomeHero() {
                 alt="Logo"
                 width={96}
                 height={48}
+                priority
                 className="object-contain"
               />
             </Link>
@@ -75,35 +77,44 @@ export default function HomeHero() {
       {/* Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* Contenu principal (aligné à gauche) */}
+      {/* Contenu principal */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        {/* Animation du titre */}
+        {/* Animation du titre (sans `opacity` au chargement) */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           Notre ambition
           <br />
-          au service de vos <span className="text-white">{words[currentWordIndex]}</span>.
+          au service de vos{" "}
+          <motion.span
+            key={currentWordIndex}
+            layoutId="word"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-white"
+          >
+            {words[currentWordIndex]}
+          </motion.span>
+          .
         </motion.h1>
 
-        {/* Animation de la description */}
+        {/* Animation de la description (plus rapide) */}
         <motion.p
           className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
         </motion.p>
 
-        {/* Animation du bouton */}
+        {/* Animation du bouton (optimisé) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          initial={{ scale: 0.95 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
           <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors">
             <Link href="#expertise">Découvrir notre expertise</Link>
