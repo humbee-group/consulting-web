@@ -103,10 +103,6 @@ export function HomeHighlights() {
                 index === 0 ? "ml-4 lg:ml-[calc((104vw-1280px)/2.2)]" : "ml-6"
               } ${index === menu.length - 1 ? "mr-4" : ""}`}
             >
-              {/* ✅ Pastille Type en haut à droite */}
-              <div className="absolute top-4 right-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {item.type}
-              </div>
 
               {/* Titre et description */}
               <div className="absolute top-8 left-8 w-full max-w-xs z-10 text-left">
@@ -120,7 +116,7 @@ export function HomeHighlights() {
                 src={item.image}
                 alt="Nos points fort"
                 width={640}
-                height={320}
+                height={360}
                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 object-cover"
               />
             </motion.div>

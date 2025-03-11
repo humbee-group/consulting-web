@@ -38,7 +38,7 @@ export default function HomeClients() {
       {/* Gradient en haut */}
       <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-[#F4F4F5] to-white opacity-100" />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Sous-titre animé */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}
@@ -56,22 +56,22 @@ export default function HomeClients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false }}
-          className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent -ml-1"
         >
           De plus près.
         </motion.h2>
       </div>
 
       {/* Grid des projets */}
-      <div className="mt-12 grid gap-12 md:grid-cols-3 max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div className="mt-12 grid gap-12 md:grid-cols-3 max-w-7xl mx-auto px-4 relative z-10">
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col items-start mb-8">
             {/* Image carrée qui remplit toute la largeur de la colonne */}
             <Image
               src={project.image}
               alt={project.name}
-              width={480}
-              height={480}
+              width={640}
+              height={360}
               className="w-full aspect-square object-cover rounded-sm"
             />
 

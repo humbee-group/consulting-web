@@ -44,7 +44,7 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
           <Link href="/">
             <Image src="/assets/logos/logo-small-light.webp"
               alt="Logo"
-              className="h-6 w-6"
+              className="h-6 w-auto"
               width={32}
               height={32}
             />
