@@ -27,22 +27,28 @@ export default function HomeHero() {
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
-      {/* Dégradé en haut */}
+      {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* Vidéo en fond avec `poster` pour un affichage immédiat */}
+      {/* ✅ Image de fond en `background-image` pour éviter l'effet blanc */}
+      <div 
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
+        style={{ backgroundImage: "url('/assets/home-hero.webp')" }}
+      />
+
+      {/* ✅ Vidéo qui ne bloque pas le LCP */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        poster="/assets/home-hero-poster.webp"
+        poster="/assets/home-hero.webp" // Image de fond rapide
         className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
       >
         <source src="/assets/home-hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Navbar statique */}
+      {/* ✅ Navbar statique */}
       <div className="absolute top-2 left-0 right-0 bg-transparent z-50">
         <div className="mx-auto max-w-7xl pr-4 h-12 flex justify-between items-center pl-4">
           <div className="flex items-center space-x-2">
@@ -74,18 +80,13 @@ export default function HomeHero() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* Contenu principal */}
+      {/* ✅ Contenu principal immédiatement chargé */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        {/* ✅ Titre animé une seule fois */}
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        {/* ✅ Titre affiché immédiatement et animé après */}
+        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Notre ambition
           <br />
           au service de vos{" "}
@@ -100,7 +101,7 @@ export default function HomeHero() {
             {words[currentWordIndex]}
           </motion.span>
           .
-        </motion.h1>
+        </h1>
 
         {/* ✅ Animation de la description */}
         <motion.p
@@ -112,7 +113,7 @@ export default function HomeHero() {
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
         </motion.p>
 
-        {/* ✅ Bouton animé */}
+        {/* ✅ Bouton animé immédiatement après */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
