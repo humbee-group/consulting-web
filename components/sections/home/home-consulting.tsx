@@ -78,24 +78,7 @@ export default function HomeHero() {
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
       {/* ✅ Contenu principal immédiatement affiché */}
-      <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        {/* ✅ Texte LCP avec police préchargée */}
-        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Notre ambition
-          <br />
-          au service de vos <span className="text-white">projets</span>.
-        </h1>
-
-        <Button
-          className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
-          asChild
-        >
-          <Link href="#expertise" aria-label="Découvrir notre expertise" title="Découvrir notre expertise">
-            <span className="sr-only">Accéder à la section Expertise</span>
-            Découvrir notre expertise
-          </Link>
-        </Button>
-      </div>
+      
     </section>
   );
 }
