@@ -47,10 +47,10 @@ export default function HomeHero() {
           <div className="flex items-center space-x-2">
             <Link href="/">
               <Image
-                src="/logo-small-dark.webp"
+                src="/assets/logos/logo-full-dark.webp"
                 alt="Logo"
-                width={32}
-                height={32}
+                width={96}
+                height={48}
                 className="object-contain"
               />
             </Link>

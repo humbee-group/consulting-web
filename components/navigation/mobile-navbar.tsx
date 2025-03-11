@@ -29,7 +29,7 @@ export default function MobileNavbar({ isMenuOpen, toggleMenu }: MobileNavbarPro
   const navState = isMenuOpen ? 3 : isScrolled ? 2 : 1;
   const containerBg = navState === 1 ? "bg-transparent" : "bg-white";
 
-  const logoSrc = navState === 1 ? "/logo-small-dark.webp" : "/logo-small-light.webp";
+  const logoSrc = navState === 1 ? "/assets/logos/logo-small-dark.webp" : "/assets/logos/logo-small-light.webp";
 
   return (
     <AnimatePresence>

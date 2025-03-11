@@ -17,9 +17,9 @@ export default function MobileMenu({ isMenuOpen, toggleMenu }: MobileMenuProps) 
       <div className="absolute top-5 left-4">
         <Link href="/" onClick={toggleMenu}>
           <Image
-            src="/logo-small-light.webp"
+            src="/assets/logos/logo-full-light.webp"
             alt="Logo"
-            width={32}
+            width={96}
             height={32}
             className="object-contain"
           />

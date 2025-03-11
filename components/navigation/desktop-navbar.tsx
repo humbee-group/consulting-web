@@ -35,18 +35,18 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
     <nav
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-white border-b-4 border-secondary" : "bg-gra-100"
+        scrolled ? "bg-white  border-b border-gray-300" : "bg-gra-100"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center space-x-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center space-x-4">
         {/* Logo */}
         <div className="flex items-center space-x-2 mr-2">
           <Link href="/">
-            <Image src="/logo-full-dark.webp"
+            <Image src="/assets/logos/logo-small-light.webp"
               alt="Logo"
-              className="h-4 w-auto"
-              width={600}  // Largeur arbitraire
-              height={600} // Hauteur arbitraire
+              className="h-6 w-auto"
+              width={32}  // Largeur arbitraire
+              height={32} // Hauteur arbitraire
             />
           </Link>
         </div>
