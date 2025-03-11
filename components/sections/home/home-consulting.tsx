@@ -1,24 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-
+import { Button } from "@/components/ui/button";
 import MobileMenu from "../../navigation/mobile-menu";
 import DrawerContact from "@/components/drawers/drawer-contact";
 import { DesktopMenu } from "@/components/navigation/desktop-menu";
 
+const words = ["projets", "idées", "défis"];
+
 export default function HomeHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Image de fond optimisée */}
+      {/* ✅ Image statique pour améliorer le LCP */}
       <Image
         src="/assets/home-hero.webp"
         alt="Fond Hero"
@@ -28,17 +40,17 @@ export default function HomeHero() {
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 
-      {/* ✅ Vidéo en fond chargée après LCP */}
+      {/* ✅ Vidéo chargée après le LCP */}
       <video
         autoPlay
         muted
         loop
         playsInline
         poster="/assets/home-hero.webp"
-        className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10 opacity-0 transition-opacity duration-700"
-        onLoadedData={(e) => e.currentTarget.classList.add("opacity-100")}
+        className={`absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+        onLoadedData={() => setVideoLoaded(true)}
       >
-        <source src="/assets/home-hero.mp4" type="video/mp4" />
+        <source src="/assets/home-hero2.mp4" type="video/mp4" />
       </video>
 
       {/* ✅ Navbar statique optimisée */}
@@ -78,7 +90,31 @@ export default function HomeHero() {
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
       {/* ✅ Contenu principal immédiatement affiché */}
-      
+      <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
+        {/* ✅ Texte immédiatement visible */}
+        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Notre ambition
+          <br />
+          au service de vos{" "}
+          <span className="text-white">{words[currentWordIndex]}</span>.
+        </h1>
+
+        {/* ✅ Description avec min-height pour éviter le reflow */}
+        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg min-h-[60px]">
+          Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
+        </p>
+
+        {/* ✅ Bouton avec accessibilité améliorée */}
+        <Button
+          className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
+          asChild
+        >
+          <Link href="#expertise" aria-label="Découvrir notre expertise" title="Découvrir notre expertise">
+            <span className="sr-only">Accéder à la section Expertise</span>
+            Découvrir notre expertise
+          </Link>
+        </Button>
+      </div>
     </section>
   );
 }
