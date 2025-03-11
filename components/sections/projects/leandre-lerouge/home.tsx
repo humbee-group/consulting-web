@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="flex items-center space-x-2">
             <Link href="/" aria-label="Retour à l'accueil">
               <Image
-                src="/logo-small-dark.webp"
+                src="/assets/logos/logo-small-dark.webp"
                 alt="Logo"
                 width={32}
                 height={32}
