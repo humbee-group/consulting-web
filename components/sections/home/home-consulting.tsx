@@ -18,7 +18,7 @@ export default function HomeHero() {
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Image de fond pour éviter un écran blanc */}
+      {/* ✅ Image de fond */}
       <Image
         src="/assets/home-hero.webp"
         alt="Fond Hero"
@@ -28,47 +28,26 @@ export default function HomeHero() {
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 
-      {/* ✅ Vidéo chargée après le texte */}
-      {typeof window !== "undefined" && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/assets/home-hero.webp"
-          className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
-        >
-          <source src="/assets/home-hero.mp4" type="video/mp4" />
-        </video>
-      )}
-
-      {/* ✅ Navbar statique optimisée */}
-      <div className="absolute top-2 left-0 right-0 bg-transparent z-50">
+      {/* ✅ Navbar */}
+      <div className="absolute top-2 left-0 right-0 z-50">
         <div className="mx-auto max-w-7xl pr-4 h-12 flex justify-between items-center pl-4">
-          <div className="flex items-center space-x-2">
-            <Link href="/" aria-label="Retour à l'accueil">
-              <Image
-                src="/assets/logos/logo-full-dark.webp"
-                alt="Logo Humbee"
-                width={96}
-                height={48}
-                priority
-                className="object-contain"
-              />
-            </Link>
-            <div className="hidden md:block pl-4">
-              <DesktopMenu />
-            </div>
+          <Link href="/" aria-label="Retour à l'accueil">
+            <Image
+              src="/assets/logos/logo-full-dark.webp"
+              alt="Logo Humbee"
+              width={96}
+              height={48}
+              priority
+              className="object-contain"
+            />
+          </Link>
+          <div className="hidden md:block">
+            <DesktopMenu />
           </div>
-
-          <div className="flex items-center space-x-3 md:hidden">
+          <div className="md:hidden flex items-center space-x-3">
             <DrawerContact />
-            <button
-              className="focus:outline-none"
-              aria-label="Ouvrir le menu de navigation"
-              onClick={toggleMenu}
-            >
-              <Menu className="h-6 w-6 text-primary text-white" />
+            <button className="focus:outline-none" aria-label="Ouvrir le menu" onClick={toggleMenu}>
+              <Menu className="h-6 w-6 text-primary" />
             </button>
           </div>
         </div>
@@ -77,25 +56,18 @@ export default function HomeHero() {
       {/* ✅ Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* ✅ Contenu principal immédiatement affiché */}
+      {/* ✅ Contenu principal simplifié */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        {/* ✅ Titre immédiatement visible, sans animations */}
-        <h1 className="text-4xl md:text-6xl font-bold text-black">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary">
           Notre ambition <br /> au service de vos projets.
         </h1>
 
-        {/* ✅ Description optimisée, chargée immédiatement */}
-        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg min-h-[60px]">
+        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg">
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique.
         </p>
 
-        {/* ✅ Bouton avec accessibilité améliorée */}
-        <Button
-          className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
-          asChild
-        >
-          <Link href="#expertise" aria-label="Découvrir notre expertise" title="Découvrir notre expertise">
-            <span className="sr-only">Accéder à la section Expertise</span>
+        <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors" asChild>
+          <Link href="#expertise" aria-label="Découvrir notre expertise">
             Découvrir notre expertise
           </Link>
         </Button>

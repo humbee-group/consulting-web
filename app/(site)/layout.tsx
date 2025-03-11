@@ -26,7 +26,7 @@ const secondary = localFont({
 export const metadata: Metadata = {
   title: "Humbee Consulting | Agence de Communication à Bordeaux – Stratégie & Digital",
   description:
-    "Humbee Consulting, votre agence de communication à Bordeaux, accompagne startups & entreprises avec des stratégies sur mesure : branding, digital, social media, web, ERP, CRM. Boostez votre croissance avec une approche 360° !",
+    "Humbee Consulting, votre agence de communication à Bordeaux, accompagne startups & entreprises avec des stratégies sur mesure.",
 };
 
 export default function RootLayout({
