@@ -11,16 +11,16 @@ const primary = localFont({
   src: "./../fonts/primary.woff2",
   variable: "--font-primary",
   weight: "100 900",
-  display: "swap", // ✅ Evite le blocage du rendu
-  preload: true, // ✅ Charge la police dès le début
+  display: "swap",
+  preload: true,
 });
 
 const secondary = localFont({
   src: "./../fonts/secondary.woff",
   variable: "--font-secondary",
   weight: "100 900",
-  display: "swap", // ✅ Evite le blocage du rendu
-  preload: true, // ✅ Charge la police dès le début
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
