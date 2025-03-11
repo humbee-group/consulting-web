@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import MobileMenu from "../../../navigation/mobile-menu";
 import DrawerContact from "@/components/drawers/drawer-contact";
 import { DesktopMenu } from "@/components/navigation/desktop-menu";

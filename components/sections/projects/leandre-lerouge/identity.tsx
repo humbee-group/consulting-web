@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Search, Image as ImageIcon, PenTool, Palette, Layers, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const features = [
   {
@@ -78,7 +79,7 @@ export function IdentityVisual() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false }}
           >
-            <img
+            <Image
               src="/projects/leandre-lerouge/presentation.webp"
               alt="Processus de création d'identité"
               className="w-full rounded-sm shadow-none"

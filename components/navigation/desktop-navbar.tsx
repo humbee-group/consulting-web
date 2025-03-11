@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type DesktopNavbarProps = {
@@ -39,9 +41,9 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center space-x-4">
         {/* Logo */}
         <div className="flex items-center space-x-2 mr-2">
-          <a href="/">
-            <img src="/logo-full-dark.webp" alt="Logo" className="h-4 w-auto" />
-          </a>
+          <Link href="/">
+            <Image src="/logo-full-dark.webp" alt="Logo" className="h-4 w-auto" />
+          </Link>
         </div>
         {/* Affichage du contenu (par exemple, le menu) */}
         {children}
