@@ -37,11 +37,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${primary.variable} ${secondary.variable}`}>
       <head>
-  <link rel="preload" href="/fonts/primary.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-  <link rel="preload" href="/fonts/secondary.woff" as="font" type="font/woff" crossOrigin="anonymous" />
-  <link rel="preload" href="/assets/home-hero.webp" as="image" />
-</head>
-<body className="antialiased">
+        <link rel="preload" href="../../fonts/primary.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="../../fonts/secondary.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" href="../../assets/home-hero.webp" as="image" />
+      </head>
+      <body className="antialiased">
         <Header />
         {children}
         <BackToTopButton />

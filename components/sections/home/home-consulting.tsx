@@ -49,8 +49,9 @@ export default function HomeHero() {
               alt="Logo Humbee"
               width={96}
               height={48}
-              priority
               className="object-contain"
+              quality={100}
+              loading="lazy"
             />
           </Link>
           <div className="hidden md:block">
