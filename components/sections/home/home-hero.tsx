@@ -18,17 +18,6 @@ export default function HomeHero() {
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Image de fond pour éviter un écran blanc */}
-      <Image
-        src="/assets/home-hero.webp"
-        alt="Fond Hero"
-        width={1920}
-        height={1080}
-        quality={100}
-        priority
-        className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
-      />
-
       {/* ✅ Vidéo de fond EXACTEMENT comme tu l'avais faite */}
       <video
         autoPlay
