@@ -32,9 +32,10 @@ export default function HomeHero() {
       {/* ✅ Image de fond pour éviter un écran blanc */}
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
-        style={{ backgroundImage: "url('/assets/home-poster.webp')" }}
+        style={{ backgroundImage: "url('/assets/home-hero.webp')" }}
       />
 
+      {/* ✅ Vidéo en fond */}
       <video
         autoPlay
         muted
@@ -57,6 +58,7 @@ export default function HomeHero() {
                 width={96}
                 height={48}
                 priority
+                style={{ width: "auto", height: "auto" }} // ✅ Corrige le problème d’aspect ratio
                 className="object-contain"
               />
             </Link>
