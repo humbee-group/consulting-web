@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 
 const projects = [
@@ -98,7 +99,7 @@ export default function HomeClients() {
             {/* Bouton en savoir plus sous la description */}
             <div className="mt-6">
               <Button variant="outline" className="border border-primary text-primary bg-transparent hover:bg-foreground hover:text-background transition-colors" asChild>
-                <a href={project.link}>Voir le projet</a>
+                <Link href={project.link} prefetch={false}>Voir le projet</Link>
               </Button>
             </div>
           </div>
