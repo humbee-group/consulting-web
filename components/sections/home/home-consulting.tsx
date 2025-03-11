@@ -40,18 +40,18 @@ export default function HomeHero() {
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 
-      {/* ✅ Vidéo chargée après le LCP */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/assets/home-hero.webp"
-        className={`absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-        onLoadedData={() => setVideoLoaded(true)}
-      >fix
-        <source src="/assets/home-hero2.mp4" type="video/mp4" />
-      </video>
+{typeof window !== "undefined" && (
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    poster="/assets/home-hero.webp"
+    className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
+  >
+    <source src="/assets/home-hero.mp4" type="video/mp4" />
+  </video>
+)}
 
       {/* ✅ Navbar statique optimisée */}
       <div className="absolute top-2 left-0 right-0 bg-transparent z-50">
@@ -92,11 +92,7 @@ export default function HomeHero() {
       {/* ✅ Contenu principal immédiatement affiché */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
         {/* ✅ Texte immédiatement visible */}
-        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Notre ambition
-          <br />
-          au service de vos{" "}
-          <span className="text-white">{words[currentWordIndex]}</span>.
+        <h1 className="text-4xl md:text-6xl font-bold text-black">
         </h1>
 
         {/* ✅ Description avec min-height pour éviter le reflow */}
