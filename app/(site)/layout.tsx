@@ -8,7 +8,7 @@ import "./../globals.css";
 import BackToTopButton from "@/components/layout/backtotop";
 
 const primary = localFont({
-  src: "./../fonts/primary.woff2",
+  src: "./../fonts/GeistVF.woff",
   variable: "--font-primary",
   weight: "100 900",
   display: "swap",
