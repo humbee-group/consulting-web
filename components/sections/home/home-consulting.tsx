@@ -49,7 +49,7 @@ export default function HomeHero() {
         poster="/assets/home-hero.webp"
         className={`absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
         onLoadedData={() => setVideoLoaded(true)}
-      >
+      >fix
         <source src="/assets/home-hero2.mp4" type="video/mp4" />
       </video>
 
