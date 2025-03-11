@@ -45,8 +45,9 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
             <Image src="/assets/logos/logo-small-light.webp"
               alt="Logo"
               className="h-6 w-auto"
-              width={32}  // Largeur arbitraire
-              height={32} // Hauteur arbitraire
+              width={32}
+              height={32}
+              priority
             />
           </Link>
         </div>

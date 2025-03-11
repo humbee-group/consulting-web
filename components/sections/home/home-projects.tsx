@@ -72,7 +72,7 @@ export default function HomeClients() {
               width={600}  // Largeur arbitraire
               height={600} // Hauteur arbitraire
               quality={100}
-              loading="lazy"
+              priority
               className="w-full aspect-square object-cover rounded-sm"
             />
 

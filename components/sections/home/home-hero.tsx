@@ -25,7 +25,7 @@ export default function HomeHero() {
         width={1920}
         height={1080}
         quality={100}
-        loading="lazy"
+        priority
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 
@@ -52,7 +52,7 @@ export default function HomeHero() {
               height={48}
               className="object-contain"
               quality={100}
-              loading="lazy"
+              priority
             />
           </Link>
           <div className="hidden md:block">
