@@ -104,6 +104,7 @@ export function HomeEngagement() {
               variant="ghost"
               size="icon"
               className="bg-gray-200 rounded-sm hover:bg-gray-300"
+              aria-label="Carousel Right"
             >
               <ChevronLeft className="w-8 h-8 text-black group-hover:text-white transition-colors" />
             </Button>
@@ -116,6 +117,7 @@ export function HomeEngagement() {
               variant="ghost"
               size="icon"
               className="bg-gray-200 rounded-sm hover:bg-gray-300"
+              aria-label="Carousel Left"
             >
               <ChevronRight className="w-8 h-8 text-black group-hover:text-white transition-colors" />
             </Button>
