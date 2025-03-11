@@ -38,16 +38,15 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
         scrolled ? "bg-white  border-b border-gray-300" : "bg-gra-100"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center space-x-4">
+      <div className="px-4 h-16 flex items-center space-x-4">
         {/* Logo */}
         <div className="flex items-center space-x-2 mr-2">
           <Link href="/">
             <Image src="/assets/logos/logo-small-light.webp"
               alt="Logo"
-              className="h-6 w-auto"
+              className="h-6 w-6"
               width={32}
               height={32}
-              priority
             />
           </Link>
         </div>

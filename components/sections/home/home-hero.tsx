@@ -33,7 +33,7 @@ export default function HomeHero() {
 
       {/* ✅ Navbar */}
       <div className="absolute top-2 left-0 right-0 z-50">
-        <div className="mx-auto max-w-7xl pr-4 h-12 flex justify-between items-center pl-4">
+        <div className="pr-4 h-12 flex justify-between items-center pl-4">
           <Link href="/" aria-label="Retour à l'accueil">
             <Image
               src="/assets/logos/logo-full-dark.webp"
@@ -41,8 +41,6 @@ export default function HomeHero() {
               width={96}
               height={48}
               className="object-contain"
-              quality={100}
-              priority
               style={{ width: "auto", height: "auto" }}
             />
           </Link>

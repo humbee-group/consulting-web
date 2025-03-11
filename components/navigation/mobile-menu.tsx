@@ -22,7 +22,6 @@ export default function MobileMenu({ isMenuOpen, toggleMenu }: MobileMenuProps) 
             width={96}
             height={32}
             className="object-contain"
-            priority
           />
         </Link>
       </div>

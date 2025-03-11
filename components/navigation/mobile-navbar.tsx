@@ -45,7 +45,7 @@ export default function MobileNavbar({ isMenuOpen, toggleMenu }: MobileNavbarPro
 
             <div className="flex items-center">
               <Link href="/">
-                <Image src={logoSrc} alt="Logo" width={32} height={32} className="object-contain" priority />
+                <Image src={logoSrc} alt="Logo" width={32} height={32} className="object-contain" />
               </Link>
             </div>
 
