@@ -86,8 +86,6 @@ export default function HomeHero() {
           au service de vos <span className="text-white">projets</span>.
         </h1>
 
-
-        {/* ✅ Bouton avec accessibilité améliorée */}
         <Button
           className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
           asChild
