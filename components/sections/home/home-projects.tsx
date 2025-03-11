@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
@@ -65,9 +66,11 @@ export default function HomeClients() {
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col items-start mb-8">
             {/* Image carrée qui remplit toute la largeur de la colonne */}
-            <img
+            <Image
               src={project.image}
               alt={project.name}
+              width={600}  // Largeur arbitraire
+              height={600} // Hauteur arbitraire
               className="w-full aspect-square object-cover rounded-sm"
             />
 

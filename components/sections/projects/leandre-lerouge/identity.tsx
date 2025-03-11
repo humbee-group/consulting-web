@@ -83,6 +83,8 @@ export function IdentityVisual() {
               src="/projects/leandre-lerouge/presentation.webp"
               alt="Processus de création d'identité"
               className="w-full rounded-sm shadow-none"
+              width={600}  // Largeur arbitraire
+              height={600} // Hauteur arbitraire
             />
           </motion.div>
 

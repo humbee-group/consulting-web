@@ -58,8 +58,9 @@ export default function HomeHero() {
   useEffect(() => {
     const onScroll = (event: WheelEvent): void => handleScroll(event);
     window.addEventListener("wheel", onScroll, { passive: false });
+  
     return () => window.removeEventListener("wheel", onScroll);
-  }, [isZoomedOut, isAnimating]);
+  }, [isZoomedOut, isAnimating, handleScroll]); // Ajout de `handleScroll`
 
   return (
     <div className="h-screen w-full overflow-hidden">

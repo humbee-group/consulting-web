@@ -42,7 +42,12 @@ export function DesktopNavbar({ children }: DesktopNavbarProps) {
         {/* Logo */}
         <div className="flex items-center space-x-2 mr-2">
           <Link href="/">
-            <Image src="/logo-full-dark.webp" alt="Logo" className="h-4 w-auto" />
+            <Image src="/logo-full-dark.webp"
+              alt="Logo"
+              className="h-4 w-auto"
+              width={600}  // Largeur arbitraire
+              height={600} // Hauteur arbitraire
+            />
           </Link>
         </div>
         {/* Affichage du contenu (par exemple, le menu) */}
