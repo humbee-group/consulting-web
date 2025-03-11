@@ -16,6 +16,7 @@ export default function HomeHero() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,25 +30,30 @@ export default function HomeHero() {
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Image de fond pour éviter un écran blanc */}
-      <div
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center -z-10"
-        style={{ backgroundImage: "url('/assets/home-hero.webp')" }}
+      {/* ✅ Image statique pour améliorer le LCP */}
+      <Image
+        src="/assets/home-hero.webp"
+        alt="Fond Hero"
+        width={1920}
+        height={1080}
+        priority
+        className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 
-      {/* ✅ Vidéo en fond */}
+      {/* ✅ Vidéo chargée après le LCP */}
       <video
         autoPlay
         muted
         loop
         playsInline
         poster="/assets/home-hero.webp"
-        className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
+        className={`absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10 transition-opacity duration-700 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+        onLoadedData={() => setVideoLoaded(true)}
       >
         <source src="/assets/home-hero.mp4" type="video/mp4" />
       </video>
 
-      {/* ✅ Navbar statique */}
+      {/* ✅ Navbar statique optimisée */}
       <div className="absolute top-2 left-0 right-0 bg-transparent z-50">
         <div className="mx-auto max-w-7xl pr-4 h-12 flex justify-between items-center pl-4">
           <div className="flex items-center space-x-2">
@@ -58,7 +64,7 @@ export default function HomeHero() {
                 width={96}
                 height={48}
                 priority
-                style={{ width: "auto", height: "auto" }} // ✅ Corrige le problème d’aspect ratio
+                style={{ width: "auto", height: "auto" }}
                 className="object-contain"
               />
             </Link>
@@ -93,8 +99,8 @@ export default function HomeHero() {
           <span className="text-white">{words[currentWordIndex]}</span>.
         </h1>
 
-        {/* ✅ Description directement affichée */}
-        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg">
+        {/* ✅ Description avec min-height pour éviter le reflow */}
+        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg min-h-[60px]">
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
         </p>
 
