@@ -15,14 +15,6 @@ const primary = localFont({
   preload: true,
 });
 
-const secondary = localFont({
-  src: "./../fonts/secondary.woff",
-  variable: "--font-secondary",
-  weight: "100 900",
-  display: "swap",
-  preload: true,
-});
-
 export const metadata: Metadata = {
   title: "Humbee Consulting | Agence de Communication à Bordeaux – Stratégie & Digital",
   description:
@@ -35,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${primary.variable} ${secondary.variable}`}>
+    <html lang="fr" className={`${primary.variable}`}>
       <body className="antialiased">
         <Header />
         {children}
