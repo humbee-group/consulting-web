@@ -49,7 +49,7 @@ export default function HomeHero() {
             <Link href="/">
               <Image
                 src="/assets/logos/logo-full-dark.webp"
-                alt="Logo"
+                alt="Logo Humbee"
                 width={96}
                 height={48}
                 priority
@@ -65,7 +65,7 @@ export default function HomeHero() {
             <DrawerContact />
             <button
               className="focus:outline-none"
-              aria-label="Menu"
+              aria-label="Ouvrir le menu"
               onClick={toggleMenu}
             >
               <Menu className="h-6 w-6 text-primary text-white" />
@@ -79,12 +79,13 @@ export default function HomeHero() {
 
       {/* Contenu principal */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        {/* Animation du titre (sans `opacity` au chargement) */}
+        {/* Animation du titre */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          layoutId="hero-title"
         >
           Notre ambition
           <br />
@@ -100,24 +101,32 @@ export default function HomeHero() {
           .
         </motion.h1>
 
-        {/* Animation de la description (plus rapide) */}
+        {/* Animation de la description */}
         <motion.p
           className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg"
-          initial={{ y: 50 }}
-          animate={{ y: 0 }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          layoutId="hero-text"
         >
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
         </motion.p>
 
-        {/* Animation du bouton (optimisé) */}
+        {/* Animation du bouton (corrigé pour l'accessibilité) */}
         <motion.div
-          initial={{ scale: 0.95 }}
-          animate={{ scale: 1 }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+          layoutId="hero-button"
         >
-          <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors">
-            <Link href="#expertise">Découvrir notre expertise</Link>
+          <Button
+            className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors"
+            asChild
+          >
+            <Link href="#expertise" aria-label="Découvrir notre expertise">
+              <span className="sr-only">Aller à la section Expertise</span>
+              Découvrir notre expertise
+            </Link>
           </Button>
         </motion.div>
       </div>

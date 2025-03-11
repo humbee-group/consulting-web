@@ -17,27 +17,29 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       
-      {/* Vidéo en fond */}
+      {/* ✅ Vidéo optimisée avec `poster` */}
       <video
         autoPlay
         muted
         loop
         playsInline
+        poster="/projects/leandre-lerouge/hero-poster.webp"
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src="/projects/leandre-lerouge/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Navbar statique */}
+      {/* ✅ Navbar optimisée */}
       <div className="absolute top-2 left-0 right-0 bg-transparent z-50">
         <div className="mx-auto max-w-7xl pr-4 h-12 flex justify-between items-center pl-4">
           <div className="flex items-center space-x-2">
-            <Link href="/">
+            <Link href="/" aria-label="Retour à l'accueil">
               <Image
                 src="/logo-small-dark.webp"
                 alt="Logo"
                 width={32}
                 height={32}
+                priority
                 className="object-contain"
               />
             </Link>
@@ -50,7 +52,7 @@ export default function Hero() {
             <DrawerContact />
             <button
               className="focus:outline-none"
-              aria-label="Menu"
+              aria-label="Ouvrir le menu"
               onClick={toggleMenu}
             >
               <Menu className="h-6 w-6 text-white" />
@@ -59,27 +61,31 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* Conteneur Bouton + Chevron */}
+      {/* ✅ Conteneur Bouton + Chevron optimisé */}
       <div className="absolute bottom-10 flex flex-col items-center space-y-4">
-        {/* Bouton Découvrir le projet */}
+        
+        {/* ✅ Bouton animé pour éviter tout blocage du LCP */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <Button 
             asChild 
             variant="outline" 
             className="text-white bg-transparent border-white hover:bg-white hover:text-black transition-colors"
           >
-            <Link href="#presentation">Découvrir le projet</Link>
+            <Link href="#presentation" aria-label="Découvrir le projet">
+              <span className="sr-only">Aller à la section présentation</span>
+              Découvrir le projet
+            </Link>
           </Button>
         </motion.div>
 
-        {/* Chevron animé */}
+        {/* ✅ Chevron animé avec meilleure transition */}
         <motion.div
           animate={{ y: [0, 10, 0] }} 
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
