@@ -24,7 +24,8 @@ export default function HomeHero() {
         alt="Fond Hero"
         width={1920}
         height={1080}
-        priority
+        quality={100}
+        loading="lazy"
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
 

@@ -71,6 +71,8 @@ export default function HomeClients() {
               alt={project.name}
               width={600}  // Largeur arbitraire
               height={600} // Hauteur arbitraire
+              quality={100}
+              loading="lazy"
               className="w-full aspect-square object-cover rounded-sm"
             />
 
