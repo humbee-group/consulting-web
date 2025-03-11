@@ -18,7 +18,7 @@ export default function HomeHero() {
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Image de fond */}
+      {/* ✅ Image de fond pour éviter un écran blanc */}
       <Image
         src="/assets/home-hero.webp"
         alt="Fond Hero"
@@ -27,6 +27,18 @@ export default function HomeHero() {
         priority
         className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
       />
+
+      {/* ✅ Vidéo de fond EXACTEMENT comme tu l'avais faite */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/assets/home-hero.webp"
+        className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
+      >
+        <source src="/assets/home-hero.mp4" type="video/mp4" />
+      </video>
 
       {/* ✅ Navbar */}
       <div className="absolute top-2 left-0 right-0 z-50">
@@ -47,7 +59,7 @@ export default function HomeHero() {
           <div className="md:hidden flex items-center space-x-3">
             <DrawerContact />
             <button className="focus:outline-none" aria-label="Ouvrir le menu" onClick={toggleMenu}>
-              <Menu className="h-6 w-6 text-primary" />
+              <Menu className="h-6 w-6 text-background" />
             </button>
           </div>
         </div>

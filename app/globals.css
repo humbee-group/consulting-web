@@ -94,26 +94,3 @@ html {
 html, body {
   overscroll-behavior: none; /* Désactive le rebond globalement */
 }
-
-@keyframes gradient-move {
-  0% {
-    background-position: 0% center;
-  }
-  25% {
-    background-position: 25% center;
-  }
-  50% {
-    background-position: 50% center;
-  }
-  75% {
-    background-position: 75% center;
-  }
-  100% {
-    background-position: 0% center;
-  }
-}
-
-.animate-gradient {
-  background-size: 300% auto; /* Étend le gradient pour un effet plus progressif */
-  animation: gradient-move 6s ease-in-out infinite;
-}
