@@ -8,46 +8,55 @@ import { motion } from "framer-motion";
 
 const menu = [
   {
-    title: "Une image de marque forte et impactante",
+    title1: "Créer une image de marque",
+    title2: "forte et impactante",
     description:
-      "Logo, charte graphique, branding : créez une identité unique et mémorable, en accord avec vos valeurs.",
+      "Logo, charte graphique, branding : une identité en accord avec vos valeurs.",
     image: "/assets/highlight-01.webp",
+    type: "Identité de marque",
   },
   {
-    title: "Des visuels qui captivent et engagent",
+    title1: "Capturer des visuels",
+    title2: "engageant et ",
     description:
-      "Photos, vidéos, contenus créatifs : valorisez votre marque avec un storytelling percutant.",
+      "Photos, vidéos, contenus créatifs : un storytelling qui valorise votre image de marque.",
     image: "/assets/highlight-02.webp",
+    type: "Création de contenu",
   },
   {
     title: "Un site web performant et sur-mesure",
     description:
       "Site vitrine ou e-commerce : une plateforme ergonomique, rapide et optimisée pour la conversion.",
     image: "/assets/highlight-03.webp",
+    type: "Développement web",
   },
   {
     title: "Une application intuitive et puissante",
     description:
       "Apps mobiles sur-mesure : UX fluide, performance et fonctionnalités adaptées à vos besoins.",
     image: "/assets/highlight-04.webp",
+    type: "Développement d'application",
   },
   {
     title: "Des supports commerciaux percutants",
     description:
       "Pitch decks, dossiers investisseurs, plaquettes commerciales : transformez vos idées en outils de conversion.",
     image: "/assets/highlight-05.webp",
+    type: "Outils de vente",
   },
   {
     title: "Une présence digitale performante",
     description:
       "Social media sur-mesure : calendrier collaboratif, contenus premium et gestion dédiée.",
     image: "/assets/highlight-06.webp",
+    type: "Marketing digital",
   },
   {
     title: "Des publicités optimisées et efficaces",
     description:
       "Création et gestion de campagnes Meta Ads & Google Ads pour maximiser votre visibilité et votre ROI.",
     image: "/assets/highlight-07.webp",
+    type: "Publicité digitale",
   },
 ];
 
@@ -55,7 +64,7 @@ export function HomeHighlights() {
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <section id="expertise"  className="relative pt-24 py-8 sm:py-16 overflow-x-hidden">
+    <section id="expertise" className="relative pt-24 py-8 sm:py-16 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Sous-titre animé */}
         <motion.p
@@ -90,26 +99,31 @@ export function HomeHighlights() {
           {menu.map((item, index) => (
             <motion.div
               key={index}
-              className={`bg-white min-w-[90vw] h-[100vw] sm:min-w-[320px] sm:h-[220px] md:min-w-[400px] md:h-[260px] lg:min-w-[70vw] lg:h-[38vw] flex-shrink-0 overflow-hidden shadow-none rounded-sm relative ${
+              className={`bg-white min-w-[90vw] h-[90vw] sm:min-w-[320px] sm:h-[220px] md:min-w-[400px] md:h-[260px] lg:min-w-[70vw] lg:h-[38vw] flex-shrink-0 overflow-hidden shadow-none rounded-sm relative ${
                 index === 0 ? "ml-4 lg:ml-[calc((104vw-1280px)/2.2)]" : "ml-6"
               } ${index === menu.length - 1 ? "mr-4" : ""}`}
             >
-              {/* Titre et description */}
-              <div className="absolute top-8 left-8 w-full max-w-xs z-10 text-left">
-                <p className="font-semibold text-2xl text-foreground">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-base text-gray-600">
-                  {item.description}
-                </p>
+              {/* ✅ Pastille Type en haut à droite */}
+              <div className="absolute top-4 right-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
+                {item.type}
               </div>
 
-              {/* Image */}
+              {/* Titre et description */}
+              <div className="absolute top-8 left-8 w-full max-w-xs z-10 text-left">
+                <p className="font-semibold text-2xl text-foreground">{item.title1}</p>
+                <p className="font-semibold text-2xl text-foreground">{item.title2}</p>
+                <p className="mt-2 text-base text-gray-600">{item.description}</p>
+              </div>
+
+              {/* Image centrée en bas */}
               <Image
                 src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover"
+                alt="Nos points fort"
+                width={640}
+                height={320}
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 object-cover"
+                quality={100}
+                priority
               />
             </motion.div>
           ))}

@@ -69,10 +69,9 @@ export default function HomeClients() {
             <Image
               src={project.image}
               alt={project.name}
-              width={600}  // Largeur arbitraire
-              height={600} // Hauteur arbitraire
+              width={480}
+              height={480}
               quality={100}
-              priority
               className="w-full aspect-square object-cover rounded-sm"
             />
 

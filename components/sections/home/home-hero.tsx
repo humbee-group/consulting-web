@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -18,7 +19,7 @@ export default function HomeHero() {
       {/* ✅ Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-4/5 bg-gradient-to-b from-primary to-transparent opacity-70" />
 
-      {/* ✅ Vidéo de fond EXACTEMENT comme tu l'avais faite */}
+      {/* ✅ Vidéo de fond */}
       <video
         autoPlay
         muted
@@ -42,6 +43,7 @@ export default function HomeHero() {
               className="object-contain"
               quality={100}
               priority
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
           <div className="hidden md:block">
@@ -59,21 +61,42 @@ export default function HomeHero() {
       {/* ✅ Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* ✅ Contenu principal simplifié */}
+      {/* ✅ Contenu principal avec animations */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-        <h1 className="text-4xl md:text-6xl font-bold text-primary">
-          Notre ambition <br /> au service de vos projets.
-        </h1>
+        
+        {/* ✅ Animation du Titre */}
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold text-primary"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Notre ambition <br /> au service de vos{" "}
+          <span className="text-white">projets</span>.
+        </motion.h1>
 
-        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg">
+        {/* ✅ Animation de la Description */}
+        <motion.p
+          className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique.
-        </p>
+        </motion.p>
 
-        <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors" asChild>
-          <Link href="#expertise" aria-label="Découvrir notre expertise">
-            Découvrir notre expertise
-          </Link>
-        </Button>
+        {/* ✅ Animation du Bouton */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+        >
+          <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors" asChild>
+            <Link href="#expertise" aria-label="Découvrir notre expertise">
+              Découvrir notre expertise
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const cards = [
   {
     label: "Écouter",
-    text: "Nous prenons le temps d’échanger pour saisir précisément vos ambitions et identifier clairement vos enjeux.",
+    text: "Nous prenons le temps d’échanger pour saisir précisément vos enjeux et identifier clairement vos besoins.",
     icon: Ear,
   },
   {
@@ -16,7 +16,7 @@ const cards = [
   },
   {
     label: "Accompagner",
-    text: "Nous restons présents à vos côtés pour mettre en œuvre les actions concrètes qui assurent votre croissance.",
+    text: "Nous restons présents à vos côtés pour mettre en œuvre les solutions concrètes qui assurent votre croissance.",
     icon: Handshake,
   },
 ];
