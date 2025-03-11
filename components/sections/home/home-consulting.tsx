@@ -16,19 +16,14 @@ export default function HomeHero() {
 
   const words = ["projets", "idées", "défis"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(true);
-      setTimeout(() => {
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        setFade(false);
-      }, 500);
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
@@ -80,10 +75,9 @@ export default function HomeHero() {
       {/* Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* Contenu principal (BIEN ALIGNÉ À GAUCHE) */}
+      {/* Contenu principal (aligné à gauche) */}
       <div className="absolute left-6 md:left-24 top-1/2 transform -translate-y-1/2 z-10 flex flex-col items-start">
-
-        {/* Animation du titre (apparition du bas vers le haut) */}
+        {/* Animation du titre */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 50 }}
@@ -95,7 +89,7 @@ export default function HomeHero() {
           au service de vos <span className="text-white">{words[currentWordIndex]}</span>.
         </motion.h1>
 
-        {/* Animation de la description (apparition du bas vers le haut) */}
+        {/* Animation de la description */}
         <motion.p
           className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg"
           initial={{ opacity: 0, y: 50 }}
@@ -105,7 +99,7 @@ export default function HomeHero() {
           Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
         </motion.p>
 
-        {/* Animation du bouton (fade-in avec léger zoom) */}
+        {/* Animation du bouton */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
