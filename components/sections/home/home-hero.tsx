@@ -91,7 +91,7 @@ export default function HomeHero() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
           <Button className="mt-6 border border-primary text-primary bg-transparent hover:bg-primary hover:text-background transition-colors" asChild>
-            <Link href="#expertise" prefetch={false} aria-label="Découvrir notre expertise">
+            <Link href="#expertise" aria-label="Découvrir notre expertise">
               Découvrir notre expertise
             </Link>
           </Button>

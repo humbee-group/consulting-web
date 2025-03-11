@@ -122,8 +122,6 @@ export function HomeHighlights() {
                 width={640}
                 height={320}
                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 object-cover"
-                quality={100}
-                priority
               />
             </motion.div>
           ))}

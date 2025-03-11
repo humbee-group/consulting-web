@@ -72,7 +72,6 @@ export default function HomeClients() {
               alt={project.name}
               width={480}
               height={480}
-              quality={100}
               className="w-full aspect-square object-cover rounded-sm"
             />
 
@@ -99,7 +98,7 @@ export default function HomeClients() {
             {/* Bouton en savoir plus sous la description */}
             <div className="mt-6">
               <Button variant="outline" className="border border-primary text-primary bg-transparent hover:bg-foreground hover:text-background transition-colors" asChild>
-                <Link href={project.link} prefetch={false}>Voir le projet</Link>
+                <Link href={project.link}>Voir le projet</Link>
               </Button>
             </div>
           </div>
