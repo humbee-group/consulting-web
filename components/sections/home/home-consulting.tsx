@@ -86,10 +86,6 @@ export default function HomeHero() {
           au service de vos <span className="text-white">projets</span>.
         </h1>
 
-        {/* ✅ Description statique sans animations pour LCP */}
-        <p className="mt-6 text-md font-light text-primary max-w-sm md:max-w-lg min-h-[60px]">
-          Basé à Bordeaux, nous aidons les entreprises à se démarquer en construisant des expériences uniques, adaptées aux enjeux de notre ère numérique. Grâce à une approche pragmatique et orientée résultats, nous transformons vos idées en leviers de croissance.
-        </p>
 
         {/* ✅ Bouton avec accessibilité améliorée */}
         <Button
