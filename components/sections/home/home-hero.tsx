@@ -41,6 +41,7 @@ export default function HomeHero() {
               width={96}
               height={48}
               className="object-contain"
+              priority
               style={{ width: "auto", height: "auto" }}
             />
           </Link>
