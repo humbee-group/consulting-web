@@ -28,7 +28,7 @@ export default function HomeHero() {
         poster="/assets/home-hero.webp"
         className="absolute top-0 left-0 w-full h-full object-cover object-[70%] md:object-center -z-10"
       >
-        <source src="/assets/home-hero.mp4" type="video/mp4" />
+        <source src="/assets/home-hero.mov" type="video/mp4" />
       </video>
 
       {/* ✅ Navbar */}
@@ -39,7 +39,7 @@ export default function HomeHero() {
               src="/assets/logos/logo-full-dark.webp"
               alt="Logo Humbee"
               width={96}
-              height={48}
+              height={32}
               className="object-contain"
               priority
               style={{ width: "auto", height: "auto" }}
