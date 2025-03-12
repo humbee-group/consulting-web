@@ -41,7 +41,7 @@ export function HomeEngagement() {
       {/* Dégradé en haut */}
       <div className="absolute top-0 left-0 w-full h-2/4 bg-gradient-to-b from-white to-[#F4F4F5] opacity-100" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Sous-titre animé */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}
@@ -77,7 +77,7 @@ export function HomeEngagement() {
             <motion.div
               key={index}
               className={`bg-white w-[300px] h-[260px] flex-shrink-0 overflow-hidden shadow-none rounded-sm p-6 relative ${
-                index === 0 ? "ml-4 lg:ml-[calc((104vw-1280px)/2.2)]" : "ml-6"
+                index === 0 ? "ml-4 lg:ml-[calc((104vw-1150px)/2.2)]" : "ml-6"
               } ${index === features.length - 1 ? "mr-4" : ""}`}
             >
               {/* Icône */}
@@ -95,31 +95,11 @@ export function HomeEngagement() {
         {/* Boutons de navigation */}
         <div className="flex justify-end mt-6 pr-4 relative z-10">
           <div className="flex space-x-2">
-            <Button
-              onClick={() => {
-                if (carouselRef.current) {
-                  carouselRef.current.scrollBy({ left: -490, behavior: "smooth" });
-                }
-              }}
-              variant="ghost"
-              size="icon"
-              className="bg-gray-200 rounded-sm hover:bg-gray-300"
-              aria-label="Carousel Right"
-            >
-              <ChevronLeft className="w-8 h-8 text-black group-hover:text-white transition-colors" />
+            <Button onClick={() => carouselRef.current?.scrollBy({ left: -470, behavior: "smooth" })} variant="ghost" size="icon" className="border border-black text-black bg-transparent hover:bg-black hover:text-background transition-colors" aria-label="Défiler à gauche">
+              <ChevronLeft className="w-8 h-8" />
             </Button>
-            <Button
-              onClick={() => {
-                if (carouselRef.current) {
-                  carouselRef.current.scrollBy({ left: 490, behavior: "smooth" });
-                }
-              }}
-              variant="ghost"
-              size="icon"
-              className="bg-gray-200 rounded-sm hover:bg-gray-300"
-              aria-label="Carousel Left"
-            >
-              <ChevronRight className="w-8 h-8 text-black group-hover:text-white transition-colors" />
+            <Button onClick={() => carouselRef.current?.scrollBy({ left: 470, behavior: "smooth" })} variant="ghost" size="icon" className="border border-black text-black bg-transparent hover:bg-black hover:text-background transition-colors" aria-label="Défiler à droite">
+              <ChevronRight className="w-8 h-8" />
             </Button>
           </div>
         </div>

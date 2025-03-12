@@ -62,7 +62,7 @@ export default function HomeHero() {
 
       {/* ✅ Conteneur principal avec max-w-7xl */}
       <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
-        <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col items-start">
+        <div className="max-w-6xl mx-auto px-4 relative z-10 flex flex-col items-start">
           {/* ✅ Animation du Titre */}
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-primary"

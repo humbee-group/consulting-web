@@ -27,7 +27,7 @@ export default function HomeAbout() {
       {/* Gradient en fond */}
       <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white to-[#F4F4F5] opacity-100" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Texte introductif avec animation vers le bas */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}

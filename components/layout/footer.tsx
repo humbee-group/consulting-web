@@ -13,7 +13,7 @@ export function SiteFooter() {
         {/* Logo avec le copyright */}
         <div className="flex items-center space-x-2">
           <Image
-            src="/logo-small-light.webp"
+            src="/assets/logos/logo-small-light.webp"
             alt="Logo"
             width={24}
             height={24}
@@ -28,7 +28,7 @@ export function SiteFooter() {
           <Heart className="w-4 h-4 mx-1 text-red-500" />
           by{" "}
           <a
-            href="https://humbee.agency"
+            href="https://humbee.consulting"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-muted-foreground ml-1"

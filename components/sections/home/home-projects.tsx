@@ -7,20 +7,20 @@ import Image from "next/image";
 
 const projects = [
   {
-    name: "Bordeaux Merignac Volley",
+    name: "Bordeaux Mérignac Volley",
     description:
-      "Nous avons accompagné le club dans sa transition vers la ligue professionnelle en structurant son image et en renforçant son impact digital.",
+      "Nous accompagnons le club dans sa transition vers la ligue professionnelle en structurant son image et en renforçant son impact digital.",
     image: "/assets/clients-03.webp",
     link: "/projets/bordeaux-merignac-volley",
-    tags: ["Stratégie digitale", "Site web", "Social Media"],
+    tags: ["Identité de marque", "Développement web", "Marketing digital"],
   },
   {
     name: "Leandre Lerouge",
     description:
-      "Une marque pensée pour captiver et innover, alliant une identité forte à une stratégie ambitieuse pour s’imposer sur son marché.",
+      "Une marque pensée pour captiver et innover, alliant une identité forte à une stratégie ambitieuse pour s’imposer sur son marché du luxe.",
     image: "/assets/clients-02.webp",
     link: "/projets/leandre-lerouge",
-    tags: ["Site web", "Jeu mobile", "Stratégie commerciale"],
+    tags: ["Développement web", "Développement d'app", "Outils de vente"],
   },
   {
     name: "Noir & Blanc",
@@ -28,7 +28,7 @@ const projects = [
       "Une identité visuelle percutante et une présence digitale immersive pour ancrer Noir & Blanc comme une référence de la scène underground techno.",
     image: "/assets/clients-01.webp",
     link: "/projets/noir-et-blanc",
-    tags: ["Branding", "Social Media", "Stratégie digitale"],
+    tags: ["Identité de marque", "Marketing digital", "Publicité digitale"],
   },
 ];
 
@@ -38,7 +38,7 @@ export default function HomeClients() {
       {/* Gradient en haut */}
       <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-[#F4F4F5] to-white opacity-100" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Sous-titre animé */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}
@@ -63,17 +63,19 @@ export default function HomeClients() {
       </div>
 
       {/* Grid des projets */}
-      <div className="mt-12 grid gap-12 md:grid-cols-3 max-w-7xl mx-auto px-4 relative z-10">
+      <div className="mt-12 grid gap-12 md:grid-cols-3 max-w-6xl mx-auto px-4 relative z-10">
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col items-start mb-8">
-            {/* Image carrée qui remplit toute la largeur de la colonne */}
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={640}
-              height={360}
-              className="w-full aspect-square object-cover rounded-sm"
-            />
+            {/* ✅ Image redimensionnée en 16:9 (640x360) */}
+            <div className="w-full aspect-[16/9] relative">
+              <Image
+                src={project.image}
+                alt={project.name}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-sm"
+              />
+            </div>
 
             {/* Nom du projet */}
             <h3 className="text-xl font-semibold text-gray-900 mt-4">
@@ -97,7 +99,7 @@ export default function HomeClients() {
 
             {/* Bouton en savoir plus sous la description */}
             <div className="mt-6">
-              <Button variant="outline" className="border border-primary text-primary bg-transparent hover:bg-foreground hover:text-background transition-colors" asChild>
+              <Button variant="outline" className="border border-black text-black bg-transparent hover:bg-foreground hover:text-background transition-colors" asChild>
                 <Link href={project.link}>Voir le projet</Link>
               </Button>
             </div>

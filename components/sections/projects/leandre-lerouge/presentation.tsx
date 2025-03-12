@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, AlertTriangle, CheckCircle } from "lucide-react";
+import { Target, Lightbulb, CheckCircle } from "lucide-react";
 
 const projectDetails = {
   name: "Leandre Lerouge",
@@ -21,7 +21,7 @@ const sections = [
   {
     title: "Challenge",
     text: projectDetails.challenge,
-    icon: AlertTriangle,
+    icon: Lightbulb,
   },
   {
     title: "Résultat",
@@ -33,7 +33,7 @@ const sections = [
 export default function ProjectPresentation() {
   return (
     <section id="presentation" className="relative pt-24 py-8 sm:py-16 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Sous-titre animé */}
         <motion.p
           initial={{ opacity: 0, y: -10 }}
@@ -58,7 +58,7 @@ export default function ProjectPresentation() {
       </div>
 
       {/* Contenu détaillé en trois points */}
-      <div className="mt-12 grid gap-8 md:grid-cols-3 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="mt-12 grid gap-8 md:grid-cols-3 max-w-6xl mx-auto px-4">
         {sections.map((section, index) => {
           const IconComponent = section.icon;
           return (
