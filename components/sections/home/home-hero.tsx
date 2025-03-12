@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,6 +13,18 @@ import { DesktopMenu } from "@/components/navigation/desktop-menu";
 export default function HomeHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  // Liste des mots qui changent
+  const words = ["projets", "idées", "défis"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2000); // Changement toutes les 2 secondes
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden px-6 md:px-0">
@@ -42,7 +54,6 @@ export default function HomeHero() {
               height={32}
               className="object-contain"
               priority
-              style={{ width: "auto", height: "auto" }}
             />
           </Link>
           <div className="hidden md:block">
@@ -60,7 +71,7 @@ export default function HomeHero() {
       {/* ✅ Mobile Menu */}
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
-      {/* ✅ Conteneur principal avec max-w-7xl */}
+      {/* ✅ Conteneur principal avec max-w-6xl */}
       <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
         <div className="max-w-6xl mx-auto px-4 relative z-10 flex flex-col items-start">
           {/* ✅ Animation du Titre */}
@@ -71,7 +82,17 @@ export default function HomeHero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             Notre ambition <br /> au service de vos{" "}
-            <span className="text-white">projets</span>.
+            <motion.span
+              key={words[index]} // Change le mot dynamiquement
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-white inline-block"
+            >
+              {words[index]}
+            </motion.span>
+            .
           </motion.h1>
 
           {/* ✅ Animation du Texte */}
