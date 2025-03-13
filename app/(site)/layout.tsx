@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${primary.variable}`}>
       <head>
         {/* ✅ Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:title" content="Humbee Consulting | Agence de Communication à Bordeaux" />
         <meta property="og:description" content="Nous accompagnons startups & entreprises avec des stratégies digitales sur mesure." />
         <meta property="og:image" content="/assets/og-image.jpg" />
-        <meta property="og:url" content="https://humbee.consulting" />
+        <meta property="og:url" content="https://humbee.fr" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Humbee Consulting | Agence de Communication à Bordeaux" />
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="canonical" href="https://humbee.consulting" />
 
         {/* ✅ Font Preload */}
-        <link rel="preload" href="/../fonts/GeistVF.woff" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/GeistVF.woff" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
         <Header />
