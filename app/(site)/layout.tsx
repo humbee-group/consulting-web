@@ -52,9 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* ✅ Canonical URL */}
         <link rel="canonical" href="https://humbee.consulting" />
-
-        {/* ✅ Font Preload */}
-        <link rel="preload" href="/fonts/GeistVF.woff" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
         <Header />
